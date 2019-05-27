@@ -26,7 +26,7 @@
 	padding: (.25 * $masthead-height) 0; // fourth the height to center vertically
 	height: $masthead-height;
 	text-decoration: none;
-	color: #daa520;
+	color: $black;
 	font-family: $alt-font;
 	font-weight: 700;
 	@include font-size(20,no);
@@ -73,15 +73,15 @@
 			}
 			&:after {
 				width: 0;
-				background-color: $GoldEnrod;
+				background-color: $oxfordblue;
 			}
 			&:active:after,
 			&:hover:after {
 				width: 100%;
 			}
 			&:hover {
-				color: $GoldEnrod;
-				background-color: $white;
+				color: $oxfordblue;
+				background-color: $lemon;
 			}
 		}
 	}
@@ -111,7 +111,7 @@
 			font-weight: 700;
 			@include font-size(16,no);
 			line-height: .5 * $masthead-height; // half the height to center vertically
-			color: #595959;
+			color: $black;
 			text-transform: uppercase;
 		}
 	}
@@ -151,7 +151,7 @@
 #main {
 	.inner-wrap {
 		@include media($medium) {
-			@include span-columns(9);
+			@include span-columns(11);
 		}
 	}
 	.page-title {
@@ -189,7 +189,7 @@
 				p{
 					@include font-size(14,no);
 					font-family: $alt-font;
-					color: #daa520;
+					color: lighten($black,60);
 				}
 			}
 		}
@@ -379,23 +379,28 @@
    ========================================================================== */
 @page {
   size: A4;
-  margin: 0;
+  margin-top: 10mm;
 }
 
+/* including bootstrap print stylces :
+https://daneveland.com/content/printing-bootstrap
+*/
 @media print {
-    #masthead, nav, button, html [type=button], .menu-screen {
+    #masthead, nav, button, html [type=button], .menu-screen, #site-footer, .noprint, div.alert, header, .group-media, .btn, .footer, form,  #comments, .nav, ul.links.list-inline, ul.action-links {
         display: none;
     }
     html, body {
         width: 210mm;
-        height: 297mm;
+        min-width: 768px;
+        height: 287mm;
         margin: 0;
-        padding: 0;
+        padding: 0 !important;
         border: 1px #D3D3D3 solid;
         border-radius: 5px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
     #page-wrapper {
+        width: 100%;
         border: initial;
         border-radius: initial;
         width: initial;
@@ -403,26 +408,120 @@
         box-shadow: initial;
         background: initial;
         page-break-after: always;
-        max-width: 190mm;
-        min-height: 250mm;
-        max-height: 256mm;
-        padding: 10mm;
-        margin: 20mm auto;
-		border: 1px white dotted;
-		height: 256mm;
-		outline: 2cm #cbecff solid;
+        padding: 8mm;
+        margin: 8mm;
+        border: 1px white dotted;
+        height: initial;
+        max-height: 277mm;
+        outline: 9mm #cbecff solid;
 	}
-
-
-
-		
     p {
-	    font-size: 0.625rem !important;		
+	    font-size: 0.625rem !important;
+		line-height: 0.7rem !important;
+		margin:6px !important;
 	}
 	h1 {
-	    font-size: 1rem !important;		
+	    font-size: 1.2rem !important;
+		line-height: 1.2rem !important;
+		margin: 8px !important;
 	}
 	h2, h3, h4, h5, h6 {
-	    font-size: 0.75rem !important;		
+	    font-size: 0.85rem !important;
+		line-height: 0.9rem !important;
+		margin-top: 4px !important;
+		margin-bottom: 2px !important;
 	}
+	ul{
+		list-style: disc !important;
+		padding-left: 8px !important;
+	}
+	li {
+		font-size: 0.75rem !important;
+		line-height: 0.8rem !important;
+		margin-bottom: 4px ;
+	}
+  [class*="col-sm-"] {
+    float: left;
+  }
+
+  [class*="col-xs-"] {
+    float: left;
+  }
+
+  .col-sm-12, .col-xs-12 {
+    width:100% !important;
+  }
+
+  .col-sm-11, .col-xs-11 {
+    width:91.66666667% !important;
+  }
+
+  .col-sm-10, .col-xs-10 {
+    width:83.33333333% !important;
+  }
+
+  .col-sm-9, .col-xs-9 {
+    width:75% !important;
+  }
+
+  .col-sm-8, .col-xs-8 {
+    width:66.66666667% !important;
+  }
+
+  .col-sm-7, .col-xs-7 {
+    width:58.33333333% !important;
+  }
+
+  .col-sm-6, .col-xs-6 {
+    width:50% !important;
+  }
+
+  .col-sm-5, .col-xs-5 {
+    width:41.66666667% !important;
+  }
+
+  .col-sm-4, .col-xs-4 {
+    width:33.33333333% !important;
+  }
+
+  .col-sm-3, .col-xs-3 {
+    width:25% !important;
+  }
+
+  .col-sm-2, .col-xs-2 {
+    width:16.66666667% !important;
+  }
+
+  .col-sm-1, .col-xs-1 {
+    width:8.33333333% !important;
+  }
+
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12,
+  .col-xs-1,
+  .col-xs-2,
+  .col-xs-3,
+  .col-xs-4,
+  .col-xs-5,
+  .col-xs-6,
+  .col-xs-7,
+  .col-xs-8,
+  .col-xs-9,
+  .col-xs-10,
+  .col-xs-11,
+  .col-xs-12 {
+  float: left !important;
+  }
+
+
 }

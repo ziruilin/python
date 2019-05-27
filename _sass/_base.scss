@@ -9,11 +9,12 @@
 body {
 	font-family: $base-font;
 	color: $text-color;
-	background-image:
-    url('../image/背景.png');
-	
+    background-image:
+      linear-gradient(rgba(255, 255, 240, 0.9), rgba(255, 255, 240, 0.7)), 
+      url('../images/oslRB.png');
 	@include font-size(16);
 }
+
 p {
 	@include font-size(18,yes,28);
 }

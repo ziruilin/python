@@ -29,7 +29,7 @@
   display: block;
   width: $button-size * 2;
   height: $button-size * 2;
-  background: rgba(119,136,153,0.5);
+  background: $primary-color;
   outline: 0;
   padding: 0;
   border: 2.5px solid transparent;
@@ -37,7 +37,7 @@
   z-index: 20;
   box-sizing: border-box;
   &:hover {
-    background: $GoldEnrod;
+    background: $lemon;
   }
   transition: $sliding-menu-animation;
   &.slide {
@@ -89,7 +89,7 @@
     @include media($large) {
       margin-right: 20%;
     }
-    color: #595959;
+    color: $white;
     @include font-size(14);
     @include media($small) {
       @include font-size(16);
@@ -127,7 +127,7 @@
   .menu-item {
     a {
       display: block;
-      color: #595959;
+      color: $white;
       text-decoration: none;
     }
     .teaser {
@@ -144,7 +144,7 @@
     }
     a:hover .teaser {
       opacity: 1;
-      border: 3px solid $GoldEnrod;
+      border: 3px solid $lemon;
     }
     .title {
       display: block;
@@ -167,7 +167,7 @@
       }
     }
     .title:hover,.excerpt:hover,.teaser:hover{
-        color: $GoldEnrod;
+        color: $lemon;
     }
   }
   .sub-menu-item > li a {
